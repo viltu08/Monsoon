@@ -70,12 +70,13 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 20px;
             justify-content: center; /* Center the buttons */
+            gap: 20px; /* Gap between buttons */
         }
 
         ul li {
-            width: 300px; /* Fixed width for buttons */
+            flex: 1; /* Ensure all buttons take equal space */
+            max-width: 300px; /* Fixed max width for buttons */
         }
 
         /* Links */
@@ -83,7 +84,7 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            padding: 10px;
+            padding: 20px; /* Increased padding for button size */
             background-color: #002D62;
             border-radius: 20px; /* Make buttons rounded */
             height: 100px;
@@ -91,6 +92,7 @@
             align-items: center;
             justify-content: center;
             transition: background-color 0.4s ease, transform 0.2s ease;
+            width: 100%; /* Make buttons full width of the list item */
         }
 
         a:hover {
@@ -132,7 +134,7 @@
             <li>
                 <a href="Float/" target="_blank">Float</a>
             </li>
-            <li></li>
+            <li>
                 <a href="Flood/" target="_blank">Flood</a>
             </li>
         </ul>
