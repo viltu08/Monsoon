@@ -6,6 +6,8 @@
     <title>Rain at Three - Tishani Doshi</title>
     <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400&display=swap" rel="stylesheet">
     <style>
+
+        /* This code has been created by using the help of ChatGPT */
         body {
             font-family: 'Manjari', sans-serif;
             margin: 0;
@@ -61,6 +63,11 @@
         .poem span:hover {
             background: #2a547e; /* Solid dark navy on hover */
             transition: background 5s; /* Transition for background */
+        }
+
+        .message {
+            color: #6699cc;
+            transition: opacity 0.5s;
         }
     </style>
 </head>
@@ -160,25 +167,22 @@
             <span style="--delay: 8.9s; --duration: 1.4s;" class="fall-on-hover">joining.</span>
         </div>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <span style="color:#6699cc">Hover over the poem to make it rain</span>
+        <span class="message" id="hoverMessage">Hover over the poem to make it rain</span>
     </div>
 
     <!-- Add audio element for thunder sound -->
-    <audio id="thunderSound" src="path_to_your_thunder_sound.mp3" preload="auto"></audio>
+    <audio id="thunderSound" src="https://www.soundjay.com/nature/thunder-1.mp3" preload="auto"></audio>
 
     <script>
         const spans = document.querySelectorAll('.fall-on-hover');
         const thunderSound = document.getElementById('thunderSound');
+        const hoverMessage = document.getElementById('hoverMessage');
 
         spans.forEach(span => {
             span.addEventListener('mouseover', () => {
                 span.classList.add('falling');
                 document.body.style.background = '#2a547e'; // Change background to dark navy
+                hoverMessage.style.opacity = '0'; // Hide the message
 
                 // Play the thunder sound if not already playing
                 if (thunderSound.paused) {
