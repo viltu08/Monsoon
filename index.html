@@ -46,4 +46,154 @@
                 background: linear-gradient(45deg, lightgrey, cornflowerblue);
             }
             100% {
-                background: linear-gradient(45deg, #7CB9E8, #
+                background: linear-gradient(45deg, #7CB9E8, #002D62);
+            }
+        }
+
+        body {
+            font-family: 'Inconsolata', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #7CB9E8;
+            padding: 20px;
+            animation: gradient-animation 10s infinite;
+            background-size: 300% 300%;
+        }
+
+        h1 {
+            margin: 20px;
+            color: white;
+            text-align: center;
+            font-size: 80px;
+        }
+
+        h2 {
+            margin: 10px;
+            font-size: 20px;
+            color: #002D62;
+            text-align: center;
+        }
+
+        /* Lists */
+        ul {
+            list-style-type: none;
+            padding: 10px;
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            height: auto;
+        }
+
+        ul li {
+            margin: 10px 0;
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        /* Links */
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #002D62;
+            border-radius: 10px;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.4s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            background-color: #e8491d;
+            transform: scale(1.05);
+            border-radius: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footers */
+        footer {
+            margin-top: 20px;
+            color: white;
+            text-align: center;
+            align-items: bottom;
+        }
+
+        /* Media Queries */
+        @media only screen and (max-width: 1200px) {
+            body {
+                /* Styles for screens smaller than 1200px */
+            }
+        }
+
+        @media only screen and (max-width: 1000px) {
+            body {
+                /* Styles for screens smaller than 1000px */
+            }
+        }
+
+        @media only screen and (max-width: 800px) {
+            body {
+                /* Styles for screens smaller than 800px */
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                /* Styles for screens smaller than 600px */
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            h1 {
+                margin: 20px;
+                font-size: 48px;
+                text-align: center;
+                max-width: 100%;
+                position: relative;
+            }
+
+            ul {
+                margin: 0px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>MONSOON</h1>
+
+    <div>
+        <ul>
+            <li>
+                <a href="fall/" target="_blank">Fall</a>
+            </li>
+            <li>
+                <a href="float/" target="_blank">Float</a>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Vishakha Ruhela</p>
+    </footer>
+
+</body>
+
+</html>
