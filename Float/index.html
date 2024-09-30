@@ -43,7 +43,7 @@
 
         .poem span {
             display: inline-block;
-            transition: transform 0.5s, letter-spacing 0.5s; /* Add letter-spacing transition */
+            transition: transform 0.5s, letter-spacing 0.5s, color 0.5s; /* Add color transition */
         }
 
         .ripple {
@@ -64,6 +64,7 @@
 
         .hovered {
             letter-spacing: 20px; /* Set spacing for hovered state */
+            color: #001F3F; /* Darker blue color */
         }
 
         .message {
@@ -131,11 +132,8 @@
             <span style="--delay: 5.2s;" class="fall-on-hover">Nadu</span>
             <span style="--delay: 5.3s;" class="fall-on-hover">nights.</span><br>
             <span style="--delay: 5.4s;" class="fall-on-hover">We</span>
-            <span style="--delay: 5.5s;" class="fall-on-hover">turn</span>
-            <span style="--delay: 5.6s;" class="fall-on-hover">inwards</span><br>
-            <span style="--delay: 5.7s;" class="fall-on-hover">announce</span>
-            <span style="--delay: 5.8s;" class="fall-on-hover">how</span>
-            <span style="--delay: 5.9s;" class="fall-on-hover">patiently</span><br>
+            <span style="--delay: 5.5s;" class="fall-on-hover">wait</span>
+            <span style="--delay: 5.6s;" class="fall-on-hover">patiently</span><br>
             <span style="--delay: 6.0s;" class="fall-on-hover">we’ve</span>
             <span style="--delay: 6.1s;" class="fall-on-hover">waited</span>
             <span style="--delay: 6.2s;" class="fall-on-hover">for</span>
@@ -168,7 +166,7 @@
             <span style="--delay: 8.9s;" class="fall-on-hover">joining.</span>
         </div>
         <br>
-        <span class="message" id="hoverMessage">Hover over the poem to make it rain</span>
+        <span class="message" id="hoverMessage">Hover over the poem to move the water's surface </span>
     </div>
 
     <audio id="thunderSound" src="https://github.com/viltu08/Monsoon/blob/main/thunder.mp3?raw=true" preload="auto"></audio>
