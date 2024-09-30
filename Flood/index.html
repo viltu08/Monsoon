@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rain at Three - Tishani Doshi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Manjari', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #87CEEB, #001F3F);
+            color: white;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Align content vertically */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #2a547e; /* Monsoon blue color for title */
+        }
+
+        .poem {
+            font-size: 18px;
+            line-height: 0.8; /* Decreased line height for visibility */
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .poem div {
+            margin-bottom: 10px; /* Space between lines */
+        }
+
+        .poem span {
+            display: inline-block;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.5s ease; /* Added letter-spacing transition */
+        }
+
+        .poem span.liquify {
+            animation: liquify 1s infinite alternate;
+        }
+
+        @keyframes liquify {
+            0% {
+                transform: scale(1) rotate(0deg);
+                letter-spacing: 0; /* Normal spacing */
+            }
+            25% {
+                transform: scale(1.3) rotate(-5deg);
+                letter-spacing: 2em; /* Increased spacing */
+            }
+            50% {
+                transform: scale(1.7) rotate(5deg);
+                letter-spacing: 4em; /* Further increased spacing */
+            }
+            75% {
+                transform: scale(1.3) rotate(-3deg);
+                letter-spacing: 2em; /* Decreased spacing */
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                letter-spacing: 0; /* Reset spacing */
+            }
+        }
+
+        .message {
+            color: #2a547e; /* Monsoon blue for message */
+            transition: opacity 0.5s;
+        }
+
+        .hide {
+            opacity: 0; /* Class to hide the message */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rain at Three <br>by Tishani Doshi</h1>
+        <div class="poem">
+            <div>Rain at three splits the bed in half,</div>
+            <div>cracks at windows like horsemen blistering</div>
+            <div>through a century of hibernation.</div>
+            <div>The washing’s on the line.</div>
+            <div>There are pillows in the grass.</div>
+            <div>All the weeds we pulled up yesterday</div>
+            <div>lie in clotted heaps, dying slowly.</div>
+            <div>We sleep with pumiced, wooden</div>
+            <div>bodies — mud-caked, mud-brown,</div>
+            <div>listening to the fan-whir sea-heave</div>
+            <div>of our muscled Tamil Nadu nights.</div>
+            <div>We turn inwards</div>
+            <div>announce how patiently</div>
+            <div>we’ve waited for this uprooting.</div>
+            <div>Now that damaged petals of hibiscus</div>
+            <div>drown the terrace stones,</div>
+            <div>we must kneel together and gather.</div>
+            <div>This is how desire works:</div>
+            <div>splintering first, then joining.</div>
+        </div>
+        <br><br><br><br><br>
+        <div id="hoverMessage" class="message">Hover on the poem to flood the space.</div>
+    </div>
+
+    <audio id="thunderSound" src="https://github.com/viltu08/Monsoon/blob/e06d9add0208069b2fcc40ec6effd96e3257e56d/Fall/thunder.mp3?raw=true" preload="auto"></audio>
+
+    <script>
+        const poem = document.querySelector('.poem');
+        const thunderSound = document.getElementById('thunderSound');
+        const hoverMessage = document.getElementById('hoverMessage');
+
+        // Wrap each character in a span and maintain line breaks
+        const lines = Array.from(poem.children);
+        lines.forEach(line => {
+            line.innerHTML = line.innerText.split('').map(char => char === ' ' ? '&nbsp;' : `<span>${char}</span>`).join('');
+        });
+
+        const spans = document.querySelectorAll('.poem span');
+
+        spans.forEach(span => {
+            span.addEventListener('mouseover', () => {
+                span.classList.add('liquify');
+                hoverMessage.classList.add('hide'); // Hide the message
+
+                // Play the thunder sound if not already playing
+                if (thunderSound.paused) {
+                    thunderSound.loop = true; // Loop the audio
+                    thunderSound.play();
+                }
+            });
+
+            span.addEventListener('animationend', () => {
+                span.classList.remove('liquify');
+                setTimeout(() => span.classList.add('liquify'), 100);
+            });
+        });
+
+        // Optional: Stop the sound when mouse leaves the poem
+        spans.forEach(span => {
+            span.addEventListener('mouseleave', () => {
+                // Uncomment if you want to stop the sound when leaving
+                // thunderSound.pause();
+                // thunderSound.currentTime = 0; // Reset the sound
+            });
+        });
+    </script>
+</body>
+</html>
