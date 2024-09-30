@@ -15,16 +15,6 @@
         /* Import the Inconsolata font family from Google */
         @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 
-        /* Project colors to refer to */
-        /* Blue: #7CB9E8
-           Navy: #002D62
-           White: #ffffff
-           Celeste: #B2FFFF
-           cornflowerblue
-           grey
-           lightgrey
-        */
-
         * {
             margin: 0;
             padding: 0;
@@ -61,6 +51,7 @@
             padding: 20px;
             animation: gradient-animation 10s infinite;
             background-size: 300% 300%;
+            text-align: center; /* Center text */
         }
 
         h1 {
@@ -68,6 +59,7 @@
             color: white;
             text-align: center;
             font-size: 80px;
+            letter-spacing: 4px; /* Double the spacing for "MONSOON" */
         }
 
         h2 {
@@ -88,6 +80,7 @@
             gap: 20px;
             width: 100%;
             height: auto;
+            justify-content: center; /* Center the buttons */
         }
 
         ul li {
@@ -105,7 +98,7 @@
             font-weight: bold;
             padding: 10px;
             background-color: #002D62;
-            border-radius: 10px;
+            border-radius: 20px; /* Make buttons rounded */
             width: 100%;
             height: 100px;
             display: flex;
@@ -115,7 +108,7 @@
         }
 
         a:hover {
-            background-color: #e8491d;
+            background-color: #8BDA85; /* Moss green */
             transform: scale(1.05);
             border-radius: 40px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -182,10 +175,10 @@
     <div>
         <ul>
             <li>
-                <a href="fall/" target="_blank">Fall</a>
+                <a href="fall/index.html" target="_blank">Fall</a>
             </li>
             <li>
-                <a href="float/" target="_blank">Float</a>
+                <a href="float/index.html" target="_blank">Float</a>
             </li>
         </ul>
     </div>
