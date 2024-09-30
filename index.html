@@ -6,9 +6,6 @@
     <title>Rain at Three - Tishani Doshi</title>
     <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400&display=swap" rel="stylesheet">
     <style>
-		
-		/* This code has been generated with the help of ChatGPT */
-		
         body {
             font-family: 'Manjari', sans-serif;
             margin: 0;
@@ -31,7 +28,7 @@
         h1 {
             margin-bottom: 20px;
             transition: color 0.5s;
-			color: #6699cc;
+            color: #6699cc;
         }
 
         .poem {
@@ -64,10 +61,6 @@
         .poem span:hover {
             background: #2a547e; /* Solid dark navy on hover */
             transition: background 5s; /* Transition for background */
-        }
-
-        .poem span:hover {
-            background: transparent; /* Ensure the title remains transparent */
         }
     </style>
 </head>
@@ -166,23 +159,41 @@
             <span style="--delay: 8.8s; --duration: 1.6s;" class="fall-on-hover">then</span>
             <span style="--delay: 8.9s; --duration: 1.4s;" class="fall-on-hover">joining.</span>
         </div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<span style="color:#6699cc">Hover over the poem to make it rain</span>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <span style="color:#6699cc">Hover over the poem to make it rain</span>
     </div>
-	
 
+    <!-- Add audio element for thunder sound -->
+    <audio id="thunderSound" src="path_to_your_thunder_sound.mp3" preload="auto"></audio>
 
     <script>
         const spans = document.querySelectorAll('.fall-on-hover');
+        const thunderSound = document.getElementById('thunderSound');
+
         spans.forEach(span => {
             span.addEventListener('mouseover', () => {
                 span.classList.add('falling');
                 document.body.style.background = '#2a547e'; // Change background to dark navy
+
+                // Play the thunder sound if not already playing
+                if (thunderSound.paused) {
+                    thunderSound.loop = true; // Loop the audio
+                    thunderSound.play();
+                }
+            });
+        });
+
+        // Optional: Stop the sound when mouse leaves the poem (if you want)
+        spans.forEach(span => {
+            span.addEventListener('mouseleave', () => {
+                // Optionally stop the sound if you want
+                // thunderSound.pause();
+                // thunderSound.currentTime = 0; // Reset the sound
             });
         });
     </script>
