@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
 
     <style>
+/* This code utilises the help of ChatGPT for JavaScript*/
+
         /* Import the Inconsolata font family from Google */
         @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 
@@ -52,6 +54,8 @@
             animation: gradient-animation 10s infinite;
             background-size: 300% 300%;
             text-align: center; /* Center text */
+            position: relative; /* Needed for absolute positioning of bokeh */
+            overflow: hidden; /* Prevent scrollbars from appearing */
         }
 
         h1 {
@@ -102,6 +106,17 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
+        /* Bokeh Effect */
+        .bokeh {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none; /* Prevent the bokeh from interfering with mouse events */
+            background: rgba(255, 255, 255, 0.1); /* Increased transparency */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Glow effect */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            transform: translate(-50%, -50%); /* Center the bokeh */
+        }
+
         /* Footers */
         footer {
             margin-top: 20px;
@@ -145,6 +160,21 @@
         <p>&copy; 2024 Vishakha Ruhela</p>
     </footer>
 
+    <script>
+        document.addEventListener('click', (e) => {
+            const bokeh = document.createElement('div');
+            bokeh.className = 'bokeh';
+            
+            // Set random size between 50px and 150px
+            const size = Math.random() * 100 + 50; // Random size
+            bokeh.style.width = `${size}px`;
+            bokeh.style.height = `${size}px`;
+            
+            bokeh.style.left = `${e.pageX}px`;
+            bokeh.style.top = `${e.pageY}px`;
+            document.body.appendChild(bokeh);
+        });
+    </script>
 </body>
 
 </html>
