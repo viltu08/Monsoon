@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400&display=swap" rel="stylesheet">
     <style>
 		
-		/* This code has been generated using ChatGPT */
+		/* This code has been generated with the help of ChatGPT */
+		
         body {
             font-family: 'Manjari', sans-serif;
             margin: 0;
@@ -29,8 +30,8 @@
 
         h1 {
             margin-bottom: 20px;
-            cursor: pointer; /* Change cursor to pointer */
             transition: color 0.5s;
+			color: #6699cc;
         }
 
         .poem {
@@ -61,7 +62,7 @@
 
         /* Change body background on character hover */
         .poem span:hover {
-            background: #001F3F; /* Solid dark navy on hover */
+            background: #2a547e; /* Solid dark navy on hover */
             transition: background 5s; /* Transition for background */
         }
 
@@ -72,7 +73,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Rain at Three by Rita Dove</h1>
+        <h1>Rain at Three <br>by Rita Dove</h1>
         <div class="poem">
             <span style="--delay: 0s; --duration: 1s;" class="fall-on-hover">Rain</span>
             <span style="--delay: 0.1s; --duration: 1.2s;" class="fall-on-hover">at</span>
@@ -165,14 +166,23 @@
             <span style="--delay: 8.8s; --duration: 1.6s;" class="fall-on-hover">then</span>
             <span style="--delay: 8.9s; --duration: 1.4s;" class="fall-on-hover">joining.</span>
         </div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<span style="color:#6699cc">Hover over the poem to make it rain</span>
     </div>
+	
+
 
     <script>
         const spans = document.querySelectorAll('.fall-on-hover');
         spans.forEach(span => {
             span.addEventListener('mouseover', () => {
                 span.classList.add('falling');
-                document.body.style.background = '#001F3F'; // Change background to dark navy
+                document.body.style.background = '#2a547e'; // Change background to dark navy
             });
         });
     </script>
