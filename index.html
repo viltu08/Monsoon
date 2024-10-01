@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
 
     <style>
+/* The Javascript in this code has been generated using ChatGPT */
 
-        /* The javascript in this code has been generated using ChatGPT*/
         @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 
         * {
@@ -105,8 +105,8 @@
             position: absolute;
             border-radius: 50%;
             pointer-events: none;
-            backdrop-filter: blur(10px); /* Frosted effect */
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.15); /* Softer glow effect */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
             transform: translate(-50%, -50%);
         }
 
@@ -148,33 +148,37 @@
     <script>
         function getRandomColor() {
             const colors = [
-                'rgba(0, 102, 204, 0.05)', // Ultra soft blue
-                'rgba(0, 153, 255, 0.05)', // Ultra soft sky blue
-                'rgba(51, 153, 255, 0.05)', // Ultra soft light azure
-                'rgba(0, 204, 255, 0.05)', // Ultra soft turquoise
-                'rgba(51, 204, 255, 0.05)'  // Ultra soft light turquoise
+                'rgba(0, 102, 204, 0.05)',
+                'rgba(0, 153, 255, 0.05)',
+                'rgba(51, 153, 255, 0.05)',
+                'rgba(0, 204, 255, 0.05)',
+                'rgba(51, 204, 255, 0.05)'
             ];
             return colors[Math.floor(Math.random() * colors.length)];
         }
 
-        document.addEventListener('click', (e) => {
+        function createBokeh() {
             const bokeh = document.createElement('div');
             bokeh.className = 'bokeh';
 
-            // Set random size between 50px and 150px
             const size = Math.random() * 100 + 50; // Random size
             bokeh.style.width = `${size}px`;
             bokeh.style.height = `${size}px`;
 
-            // Set random color gradient with very subtle opacity
             const color1 = getRandomColor();
             const color2 = getRandomColor();
             bokeh.style.background = `radial-gradient(circle, ${color1} 0%, ${color2} 50%)`;
 
-            bokeh.style.left = `${e.pageX}px`;
-            bokeh.style.top = `${e.pageY}px`;
+            bokeh.style.left = `${Math.random() * window.innerWidth}px`;
+            bokeh.style.top = `${Math.random() * window.innerHeight}px`;
             document.body.appendChild(bokeh);
-        });
+
+            // Remove the line below to keep bokeh elements on screen
+            // setTimeout(() => { bokeh.remove(); }, 5000);
+        }
+
+        // Create a new bokeh every 800 milliseconds
+        setInterval(createBokeh, 800);
     </script>
 </body>
 
