@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monsoon Soundscape</title>
+    
+    <!-- Font Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Manjari', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #b3e5fc, #29b6f6);
+            position: relative;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 1.2em;
+            z-index: 2;
+        }
+
+        .stripe {
+            position: absolute;
+            width: 100%;
+            height: 100px; /* Adjust height as needed */
+            transition: background 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="footer">Hover on the stripes to experience the monsoon soundscape</div>
+
+    <audio id="audio" loop></audio>
+
+    <script>
+        const audioElement = document.getElementById('audio');
+        const stripes = [];
+
+        // Audio file names (without extensions) for cursor text
+        const soundNames = [
+            "Bansuri",
+            "Birds",
+            "Bollywood",
+            "Raaga",
+            "Tea",
+            "Temple"
+        ];
+
+        // Monsoon blue color palette
+        const soundUrls = [
+            "https://github.com/viltu08/Monsoon/raw/0750a89b8dff79613656f3c2ec36fa92964dee00/Bansuri.mp3",
+            "https://github.com/viltu08/Monsoon/raw/0750a89b8dff79613656f3c2ec36fa92964dee00/Birds.mp3",
+            "https://github.com/viltu08/Monsoon/raw/0750a89b8dff79613656f3c2ec36fa92964dee00/Bolly.mp3",
+            "https://github.com/viltu08/Monsoon/raw/0750a89b8dff79613656f3c2ec36fa92964dee00/Raaga.mp3",
+            "https://github.com/viltu08/Monsoon/raw/0750a89b8dff79613656f3c2ec36fa92964dee00/tea.mp3",
+            "https://github.com/viltu08/Monsoon/raw/0750a89b8dff79613656f3c2ec36fa92964dee00/temple.mp3"
+        ];
+
+        for (let i = 0; i < 6; i++) {
+            const stripe = document.createElement('div');
+            stripe.className = 'stripe';
+            stripe.style.top = `${i * 120}px`; // Adjust spacing between stripes
+            stripe.style.background = getRandomGradient();
+            document.body.appendChild(stripe);
+
+            stripe.addEventListener('mouseover', () => {
+                audioElement.src = soundUrls[i];
+                audioElement.play().catch(error => {
+                    console.error('Audio playback failed:', error);
+                });
+                // Change cursor to the name of the file
+                document.body.style.cursor = `url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><text x="0" y="35" font-size="20" fill="white">${soundNames[i]}</text></svg>') 50 25, auto`;
+            });
+
+            stripe.addEventListener('mouseleave', () => {
+                audioElement.pause();
+                audioElement.currentTime = 0;
+                // Reset cursor
+                document.body.style.cursor = 'default';
+            });
+
+            stripes.push(stripe);
+            animateGradient(stripe);
+        }
+
+        function getRandomGradient() {
+            const colors = [
+                '#b3e5fc',
+                '#81d4fa',
+                '#29b6f6',
+                '#039be5',
+                '#0288d1',
+                '#0277bd',
+                '#01579b'
+            ];
+            const color1 = colors[Math.floor(Math.random() * colors.length)];
+            const color2 = colors[Math.floor(Math.random() * colors.length)];
+            return `linear-gradient(135deg, ${color1}, ${color2})`;
+        }
+
+        function animateGradient(stripe) {
+            setInterval(() => {
+                stripe.style.background = getRandomGradient();
+            }, 2000); // Change gradient every 2 seconds
+        }
+    </script>
+</body>
+</html>
