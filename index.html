@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monsoon</title>
+    <title>Monsoon Memories</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
 
     <style>
-/* The Javascript in this code has been generated using ChatGPT */
+/* The Javascript in this code has been generated using ChatGPT*/
 
         @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 
@@ -68,16 +68,16 @@
             padding: 0;
             margin: 20px 0;
             display: flex;
-            flex-direction: row;
+            flex-direction: column; /* Stack buttons vertically */
             align-items: center;
             justify-content: center;
-            gap: 20px;
         }
 
         ul li {
-            flex: 1;
-            min-width: 300px;
-            max-width: 400px;
+            display: flex;
+            justify-content: center; /* Center items in the row */
+            width: 100%; /* Use full width */
+            margin-bottom: 20px; /* Space between the two rows */
         }
 
         a {
@@ -92,7 +92,13 @@
             align-items: center;
             justify-content: center;
             transition: background-color 0.4s ease, transform 0.2s ease;
-            width: 100%;
+            min-width: 150px; /* Minimum width for buttons */
+            margin: 0 10px; /* Horizontal margin for gaps */
+        }
+
+        .listen-button {
+            flex-grow: 1; /* Expand to fill the space */
+            margin: 0 10px; /* Maintain gap */
         }
 
         a:hover {
@@ -131,13 +137,18 @@
 
 <body>
 
-    <h1>MONSOON</h1>
+    <h1>Monsoon Memories</h1>
 
     <div>
         <ul>
-            <li><a href="Fall/" target="_blank">Fall</a></li>
-            <li><a href="Float/" target="_blank">Float</a></li>
-            <li><a href="Flow/" target="_blank">Flow</a></li>
+            <li>
+                <a href="Flow/" target="_blank">Flow</a>
+                <a href="Float/" target="_blank">Float</a>
+                <a href="Fall/" target="_blank">Fall</a>
+            </li>
+            <li>
+                <a href="Soundscape/" target="_blank" class="listen-button">Listen</a>
+            </li>
         </ul>
     </div>
 
@@ -172,9 +183,6 @@
             bokeh.style.left = `${Math.random() * window.innerWidth}px`;
             bokeh.style.top = `${Math.random() * window.innerHeight}px`;
             document.body.appendChild(bokeh);
-
-            // Remove the line below to keep bokeh elements on screen
-            // setTimeout(() => { bokeh.remove(); }, 5000);
         }
 
         // Create a new bokeh every 800 milliseconds
