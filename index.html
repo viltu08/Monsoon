@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
 
     <style>
-/* The javascript in this code has been generated using ChatGPT */
 
+        /* The javascript in this code has been generated using ChatGPT*/
         @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 
         * {
@@ -106,7 +106,7 @@
             border-radius: 50%;
             pointer-events: none;
             backdrop-filter: blur(10px); /* Frosted effect */
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Reduced glow effect */
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.15); /* Softer glow effect */
             transform: translate(-50%, -50%);
         }
 
@@ -148,11 +148,11 @@
     <script>
         function getRandomColor() {
             const colors = [
-                'rgba(0, 102, 204, 0.2)', // Soft blue
-                'rgba(0, 153, 255, 0.2)', // Sky blue
-                'rgba(51, 153, 255, 0.2)', // Light azure
-                'rgba(0, 204, 255, 0.2)', // Turquoise
-                'rgba(51, 204, 255, 0.2)'  // Light turquoise
+                'rgba(0, 102, 204, 0.05)', // Ultra soft blue
+                'rgba(0, 153, 255, 0.05)', // Ultra soft sky blue
+                'rgba(51, 153, 255, 0.05)', // Ultra soft light azure
+                'rgba(0, 204, 255, 0.05)', // Ultra soft turquoise
+                'rgba(51, 204, 255, 0.05)'  // Ultra soft light turquoise
             ];
             return colors[Math.floor(Math.random() * colors.length)];
         }
@@ -166,10 +166,10 @@
             bokeh.style.width = `${size}px`;
             bokeh.style.height = `${size}px`;
 
-            // Set random color gradient
+            // Set random color gradient with very subtle opacity
             const color1 = getRandomColor();
             const color2 = getRandomColor();
-            bokeh.style.background = `radial-gradient(circle, ${color1} 0%, ${color2} 70%)`;
+            bokeh.style.background = `radial-gradient(circle, ${color1} 0%, ${color2} 50%)`;
 
             bokeh.style.left = `${e.pageX}px`;
             bokeh.style.top = `${e.pageY}px`;
